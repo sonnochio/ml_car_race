@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class checkPointSingle : MonoBehaviour
+public class CheckPointSingle : MonoBehaviour
 {
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.TryGetComponent<WheelCollider>(out WheelCollider car))
-        //{
-        Debug.Log("Smash that!");
+
+        Debug.Log("collided with the checkpoint");
+        other.transform.parent.parent.parent.GetComponent<CheckPointManager>().CheckPointReached(this);
+
+        //other.GetComponent<CheckPointManager>().CheckPointReached(this);
+
+
        
     }
 
-    //}
 }
